@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="FavoriteCast" representedClassName="FavoriteCast" syncable="YES" codeGenerationType="class">
+        <attribute name="character" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profilePath" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="moveCreditsModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FavoriteMoveCreditsModel" inverseName="cast" inverseEntity="FavoriteMoveCreditsModel" syncable="YES"/>
+    </entity>
+    <entity name="FavoriteDetailMovieModel" representedClassName="FavoriteDetailMovieModel" syncable="YES" codeGenerationType="class">
+        <attribute name="addDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="budget" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="moveId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="originalTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="posterPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="releaseDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="revenue" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="runtime" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="voteAverage" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="genres" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FavoriteGenres" inverseName="detailMovieModel" inverseEntity="FavoriteGenres" syncable="YES"/>
+        <relationship name="productionCountries" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FavoriteProductionCountries" inverseName="detailMovieModel" inverseEntity="FavoriteProductionCountries" syncable="YES"/>
+    </entity>
+    <entity name="FavoriteGenres" representedClassName="FavoriteGenres" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="detailMovieModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FavoriteDetailMovieModel" inverseName="genres" inverseEntity="FavoriteDetailMovieModel" syncable="YES"/>
+    </entity>
+    <entity name="FavoriteMoveCreditsModel" representedClassName="FavoriteMoveCreditsModel" syncable="YES" codeGenerationType="class">
+        <attribute name="creditsId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="cast" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FavoriteCast" inverseName="moveCreditsModel" inverseEntity="FavoriteCast" syncable="YES"/>
+    </entity>
+    <entity name="FavoriteProductionCountries" representedClassName="FavoriteProductionCountries" syncable="YES" codeGenerationType="class">
+        <attribute name="iso_3166_1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="detailMovieModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FavoriteDetailMovieModel" inverseName="productionCountries" inverseEntity="FavoriteDetailMovieModel" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="FavoriteCast" positionX="-639" positionY="212" width="128" height="103"/>
+        <element name="FavoriteDetailMovieModel" positionX="-891" positionY="-27" width="153" height="240"/>
+        <element name="FavoriteGenres" positionX="-677" positionY="108" width="128" height="88"/>
+        <element name="FavoriteMoveCreditsModel" positionX="-891" positionY="242" width="191" height="73"/>
+        <element name="FavoriteProductionCountries" positionX="-504" positionY="123" width="216" height="88"/>
+    </elements>
+</model>
